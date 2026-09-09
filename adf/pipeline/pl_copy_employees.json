@@ -57,13 +57,25 @@
 				"inputs": [
 					{
 						"referenceName": "ds_bosch_demo_raw",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": {
+								"value": "@pipeline().parameters.sourcefile",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_bosch_demo_processed",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"path": {
+								"value": "@pipeline().parameters.targetpath",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
@@ -77,6 +89,16 @@
 				}
 			}
 		],
+		"parameters": {
+			"sourcefile": {
+				"type": "String",
+				"defaultValue": "employees.csv"
+			},
+			"targetpath": {
+				"type": "String",
+				"defaultValue": "employees"
+			}
+		},
 		"annotations": []
 	}
 }
