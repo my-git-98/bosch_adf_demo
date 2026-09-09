@@ -71,12 +71,20 @@
 					"referenceName": "ls_bosch_demo_sink",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"path": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "processed",
+						"folderPath": {
+							"value": "@dataset().path",
+							"type": "Expression"
+						},
 						"fileSystem": "data"
 					},
 					"columnDelimiter": ",",
@@ -99,12 +107,20 @@
 					"referenceName": "ls_bosch_demo_source",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"file_name": {
+						"type": "String"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "employees.csv",
+						"fileName": {
+							"value": "@dataset().file_name",
+							"type": "Expression"
+						},
 						"folderPath": "raw",
 						"fileSystem": "data"
 					},
@@ -198,14 +214,24 @@
 							{
 								"referenceName": "ds_bosch_demo_raw",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"file_name": {
+										"value": "@pipeline().parameters.sourcefile",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "ds_bosch_demo_processed",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"path": {
+										"value": "@pipeline().parameters.targetpath",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					},
@@ -221,6 +247,16 @@
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"sourcefile": {
+						"type": "String",
+						"defaultValue": "employees.csv"
+					},
+					"targetpath": {
+						"type": "String",
+						"defaultValue": "employees"
+					}
 				},
 				"annotations": []
 			},
