@@ -1,0 +1,12 @@
+{
+	"name": "ls_bosch_demo_sink",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://boschdemosa12.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ2NjEzRUE0LTE1RkItNDYwNi05NEYwLTg4MEIzQ0ZBNDUxOF8wYTMzNzdmOS0zZWJkLTRhOTItOWU1YS02YjY0MTAwOWQ1NzQiDQp9"
+		}
+	}
+}
