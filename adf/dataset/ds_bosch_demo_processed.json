@@ -5,11 +5,20 @@
 			"referenceName": "ls_bosch_demo_sink",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"path": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().path",
+					"type": "Expression"
+				},
 				"folderPath": "processed",
 				"fileSystem": "data"
 			},
