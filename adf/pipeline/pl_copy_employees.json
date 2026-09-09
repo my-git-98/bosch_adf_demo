@@ -91,10 +91,12 @@
 		],
 		"parameters": {
 			"sourcefile": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "employees.csv"
 			},
 			"targetpath": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "employees"
 			}
 		},
 		"annotations": []
