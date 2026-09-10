@@ -8,16 +8,18 @@
 		"parameters": {
 			"p_TableName": {
 				"type": "string"
-			},
-			"p_RunDate": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "landing/@dataset().p_TableName",
+					"type": "Expression"
+				},
+				"fileSystem": "data"
 			},
 			"compressionCodec": "snappy"
 		},
