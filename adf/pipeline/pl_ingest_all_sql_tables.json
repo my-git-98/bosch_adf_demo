@@ -63,7 +63,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "@concat('SELECT * FROM ', item().TableName, ' WHERE LastUpdated >= ''', item().LastinfoDatetime, ''' AND LastUpdated < ''', formatDateTime(utcNow(), 'yyyy-MM-dd HH:mm:ss'), '''')",
+										"value": "@concat('SELECT * FROM ', item().TableName, ' WHERE LastUpdated >= ''', item().LastinfoDatetime, ''' AND LastUpdated < ''', formatDateTime(utcNow(), 'yyyy-MM-dd'), '''')",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
