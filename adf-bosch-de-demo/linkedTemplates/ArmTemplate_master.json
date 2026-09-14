@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-bosch-de-demo"
 		},
+		"ls_adls_landing_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls_landing'"
+		},
 		"ls_bosch_demo_sink_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_bosch_demo_sink'"
@@ -15,6 +19,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_bosch_demo_source'"
 		},
+		"ls_learn_sql_db_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_learn_sql_db'"
+		},
+		"ls_adls_landing_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://boschdemosa12.dfs.core.windows.net/"
+		},
 		"ls_bosch_demo_sink_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://boschdemosa12.dfs.core.windows.net/"
@@ -22,6 +34,18 @@
 		"ls_bosch_demo_source_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://boschdemosa12.dfs.core.windows.net/"
+		},
+		"ls_learn_sql_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "learning-db-bosch.database.windows.net"
+		},
+		"ls_learn_sql_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "learn_db"
+		},
+		"ls_learn_sql_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "vishnu"
 		},
 		"containerUri": {
 			"type": "string",
@@ -50,17 +74,35 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ls_adls_landing_accountKey": {
+						"value": "[parameters('ls_adls_landing_accountKey')]"
+					},
 					"ls_bosch_demo_sink_accountKey": {
 						"value": "[parameters('ls_bosch_demo_sink_accountKey')]"
 					},
 					"ls_bosch_demo_source_accountKey": {
 						"value": "[parameters('ls_bosch_demo_source_accountKey')]"
 					},
+					"ls_learn_sql_db_password": {
+						"value": "[parameters('ls_learn_sql_db_password')]"
+					},
+					"ls_adls_landing_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_landing_properties_typeProperties_url')]"
+					},
 					"ls_bosch_demo_sink_properties_typeProperties_url": {
 						"value": "[parameters('ls_bosch_demo_sink_properties_typeProperties_url')]"
 					},
 					"ls_bosch_demo_source_properties_typeProperties_url": {
 						"value": "[parameters('ls_bosch_demo_source_properties_typeProperties_url')]"
+					},
+					"ls_learn_sql_db_properties_typeProperties_server": {
+						"value": "[parameters('ls_learn_sql_db_properties_typeProperties_server')]"
+					},
+					"ls_learn_sql_db_properties_typeProperties_database": {
+						"value": "[parameters('ls_learn_sql_db_properties_typeProperties_database')]"
+					},
+					"ls_learn_sql_db_properties_typeProperties_userName": {
+						"value": "[parameters('ls_learn_sql_db_properties_typeProperties_userName')]"
 					}
 				}
 			},

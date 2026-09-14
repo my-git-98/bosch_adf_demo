@@ -5,17 +5,35 @@
 		"factoryName": {
 			"value": "adf-bosch-de-demo"
 		},
+		"ls_adls_landing_accountKey": {
+			"value": ""
+		},
 		"ls_bosch_demo_sink_accountKey": {
 			"value": ""
 		},
 		"ls_bosch_demo_source_accountKey": {
 			"value": ""
 		},
+		"ls_learn_sql_db_password": {
+			"value": ""
+		},
+		"ls_adls_landing_properties_typeProperties_url": {
+			"value": "https://boschdemosa12.dfs.core.windows.net/"
+		},
 		"ls_bosch_demo_sink_properties_typeProperties_url": {
 			"value": "https://boschdemosa12.dfs.core.windows.net/"
 		},
 		"ls_bosch_demo_source_properties_typeProperties_url": {
 			"value": "https://boschdemosa12.dfs.core.windows.net/"
+		},
+		"ls_learn_sql_db_properties_typeProperties_server": {
+			"value": "learning-db-bosch.database.windows.net"
+		},
+		"ls_learn_sql_db_properties_typeProperties_database": {
+			"value": "learn_db"
+		},
+		"ls_learn_sql_db_properties_typeProperties_userName": {
+			"value": "vishnu"
 		},
 		"containerUri": {
 			"value": ""
