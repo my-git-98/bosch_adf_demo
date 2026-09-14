@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@concat('landing/', dataset().p_TableName)",
+					"value": "@concat('landing/', dataset().p_TableName, '/', formatDateTime(utcNow(), 'yyyy/MM/dd'))\r\n",
 					"type": "Expression"
 				},
 				"fileSystem": "data"
