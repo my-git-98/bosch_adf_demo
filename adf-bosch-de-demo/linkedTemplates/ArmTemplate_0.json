@@ -144,8 +144,12 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@concat(dataset().p_TableName, '_', formatDateTime(utcNow(), 'yyyyMMdd'))\n",
+							"type": "Expression"
+						},
 						"folderPath": {
-							"value": "@concat('landing/', dataset().p_TableName, '/', formatDateTime(utcNow(), 'yyyy-MM-dd'))\n",
+							"value": "@concat('landing/', dataset().p_TableName)\n",
 							"type": "Expression"
 						},
 						"fileSystem": "data"
@@ -447,7 +451,7 @@
 										"source": {
 											"type": "AzureSqlSource",
 											"sqlReaderQuery": {
-												"value": "@concat('SELECT * FROM ', item().TableName, ' WHERE LastUpdated >= ''', item().LastinfoDatetime, ''' AND LastUpdated < ''', formatDateTime(utcNow(), 'yyyy-MM-dd HH:mm:ss'), '''')",
+												"value": "@concat('SELECT * FROM ', item().TableName, ' WHERE LastUpdated >= ''', item().LastinfoDatetime, ''' AND LastUpdated < ''', formatDateTime(utcNow(), 'yyyy-MM-dd'), '''')",
 												"type": "Expression"
 											},
 											"queryTimeout": "02:00:00",
