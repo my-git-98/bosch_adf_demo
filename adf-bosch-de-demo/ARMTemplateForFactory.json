@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_bosch_demo_source'"
 		},
+		"ls_databricks_dev_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databricks_dev'"
+		},
 		"ls_learn_sql_db_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_learn_sql_db'"
@@ -344,6 +348,33 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "Bronze_notebook",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "ForEach Table",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 2,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/vishnukondayil98@gmail.com/learn_databricks/01_bronze_ingestion"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_databricks_dev",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
@@ -353,6 +384,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_learn_sql_db')]",
+				"[concat(variables('factoryId'), '/linkedServices/ls_databricks_dev')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_landing')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_learn_sql_db')]"
 			]
@@ -549,6 +581,31 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_bosch_demo_source_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_databricks_dev')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-7405610306124420.0.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('ls_databricks_dev_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "16.4.x-scala2.13",
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
