@@ -131,7 +131,7 @@
 								"storedProcedureParameters": {
 									"End_Date": {
 										"value": {
-											"value": "convertFromUtc(utcNow(), 'India Standard Time')",
+											"value": "@convertFromUtc(utcNow(), 'India Standard Time')",
 											"type": "Expression"
 										},
 										"type": "DateTime"
