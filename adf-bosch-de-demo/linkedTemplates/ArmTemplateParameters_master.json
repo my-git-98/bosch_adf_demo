@@ -29,6 +29,9 @@
 		"ls_bosch_demo_source_properties_typeProperties_url": {
 			"value": "https://boschdemosa12.dfs.core.windows.net/"
 		},
+		"ls_databricks_dev_properties_typeProperties_existingClusterId": {
+			"value": "0915-082940-aidmklez"
+		},
 		"ls_learn_sql_db_properties_typeProperties_server": {
 			"value": "learning-db-bosch.database.windows.net"
 		},

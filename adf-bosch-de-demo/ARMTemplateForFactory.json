@@ -39,6 +39,10 @@
 			"type": "string",
 			"defaultValue": "https://boschdemosa12.dfs.core.windows.net/"
 		},
+		"ls_databricks_dev_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0915-082940-aidmklez"
+		},
 		"ls_learn_sql_db_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "learning-db-bosch.database.windows.net"
@@ -598,14 +602,7 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_databricks_dev_accessToken')]"
 					},
-					"newClusterNodeType": "Standard_D4ds_v6",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "16.4.x-scala2.13",
-					"clusterOption": "Fixed",
-					"newClusterInitScripts": []
+					"existingClusterId": "[parameters('ls_databricks_dev_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": []
