@@ -373,7 +373,12 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/vishnukondayil98@gmail.com/learn_databricks/01_bronze_ingestion"
+							"notebookPath": "/Users/vishnukondayil98@gmail.com/learn_databricks/01_bronze_ingestion",
+							"baseParameters": {
+								"env_catalog": "dev_catalog",
+								"env_schema": "customer_analytics",
+								"base_volume_path": "/Volumes"
+							}
 						},
 						"linkedServiceName": {
 							"referenceName": "ls_databricks_dev",
