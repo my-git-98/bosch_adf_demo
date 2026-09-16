@@ -409,7 +409,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@concat(dataset().p_TableName, '_', formatDateTime(utcNow(), 'yyyyMMdd'), '.parquet')\n",
+							"value": "@concat(dataset().p_TableName, '_', formatDateTime(convertFromUtc(utcNow(), 'India Standard Time'), 'yyyyMMdd'), '.parquet')\n",
 							"type": "Expression"
 						},
 						"folderPath": {
